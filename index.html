@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="calc.css">
+</head>
+
+<body>
+  <h1>Cristovao Franqueira</h1>
+  <div class="calculadora">
+    <div class="fundo">
+      <p id="resultado"></p>
+
+    </div>
+
+    <table>
+      <tr>
+        <td><button class="botao" id="verde5" onclick="clean('')">C</button></td>
+        <td><button class="botao" id="verde6" onclick="back()">
+            < </button>
+        </td>
+        <td><button class="botao" id="verde7" onclick="insert('%')">%</button></td>
+        <td><button class="botao" id="verde" onclick="insert('/')">/</button></td>
+      </tr>
+
+      <tr>
+        <td><button class="botao" onclick="insert('7')">7</button></td>
+        <td><button class="botao" onclick="insert('8')">8</button></td>
+        <td><button class="botao" onclick="insert('9')">9</button></td>
+        <td><button class="botao" id="verde1" onclick="insert('*')">*</button></td>
+      </tr>
+
+      <tr>
+        <td><button class="botao" onclick="insert('4')">4</button></td>
+        <td><button class="botao" onclick="insert('5')">5</button></td>
+        <td><button class="botao" onclick="insert('6')">6</button></td>
+        <td><button class="botao" id="verde2" onclick="insert('-')">-</button></td>
+      </tr>
+
+      <tr>
+        <td><button class="botao" onclick="insert('1')">1</button></td>
+        <td><button class="botao" onclick="insert('2')">2</button></td>
+        <td><button class="botao" onclick="insert('3')">3</button></td>
+        <td><button class="botao" id="verde3" onclick="insert('+')">+</button></td>
+      </tr>
+
+      <tr>
+        <td><button class="botao" onclick="insert('+/-')">+/-</button></td>
+        <td><button class="botao" onclick="insert('0')">0</button></td>
+        <td><button class="botao" onclick="insert('.')">.</button></td>
+        <td><button class="botao" id="verde" onclick="calcular('')">=</button></td>
+      </tr>
+    </table>
+  </div>
+  </div>
+
+  <script>
+
+
+    function insert(num) {
+      var numero = document.getElementById('resultado').innerHTML;
+      document.getElementById('resultado').innerHTML = numero + num;
+    }
+
+    function clean(clean) {
+      document.getElementById('resultado').innerHTML = "";
+    }
+
+    function back() {
+      var resultado = document.getElementById('resultado').innerHTML;
+      document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1)
+    }
+
+    function calcular() {
+      var resultado = document.getElementById('resultado').innerHTML;
+
+      if (resultado) {
+        document.getElementById('resultado').innerHTML = eval(resultado)
+      }
+      else {
+        document.getElementById('resultado').innerHTML = "null"
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
